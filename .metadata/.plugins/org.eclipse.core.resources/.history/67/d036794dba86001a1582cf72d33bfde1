@@ -1,0 +1,119 @@
+package Interface;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+public class Login extends JFrame {
+
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Login frame = new Login();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Login() {
+setUndecorated(true);
+		
+		
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 641);
+		
+		Toolkit toolkit = getToolkit();
+		Dimension size = toolkit.getScreenSize();
+		setLocation(size.width/2 - getWidth()/2,size.height/2 - getHeight()/2 );
+		
+		contentPane = new JPanel();
+		contentPane.setVerifyInputWhenFocusTarget(false);
+		contentPane.setVisible(false);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(0, 0, 450, 50);
+		panel.setBackground(new Color(0, 0, 51));
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setBounds(400, 0, 50, 50);
+		panel.add(lblNewLabel);
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Samuditha Wijemanne\\Desktop\\EN\\images\\close.png"));
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBounds(0, 50, 450, 500);
+		panel_1.setBackground(new Color(0, 153, 255));
+		contentPane.add(panel_1);
+		panel_1.setLayout(null);
+		
+		JPanel panel_2 = new JPanel();
+		panel_2.setBounds(30, 146, 366, 6);
+		panel_1.add(panel_2);
+		
+		JPanel panel_3 = new JPanel();
+		panel_3.setBackground(new Color(255, 153, 0));
+		panel_3.setBounds(30, 369, 366, 50);
+		panel_1.add(panel_3);
+		panel_3.setLayout(null);
+		
+		JLabel lblNewLabel_3 = new JLabel("Login");
+		lblNewLabel_3.setFont(new Font("Lato Black", Font.BOLD, 20));
+		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_3.setBounds(0, 0, 366, 50);
+		panel_3.add(lblNewLabel_3);
+		
+		JLabel lblNewLabel_1 = new JLabel("User Name");
+		lblNewLabel_1.setFont(new Font("Lato Black", Font.BOLD, 20));
+		lblNewLabel_1.setBounds(30, 47, 147, 25);
+		panel_1.add(lblNewLabel_1);
+		
+		JLabel lblPassword = new JLabel("Password");
+		lblPassword.setFont(new Font("Lato Black", Font.BOLD, 20));
+		lblPassword.setBounds(30, 193, 147, 14);
+		panel_1.add(lblPassword);
+		
+		JPanel panel_4 = new JPanel();
+		panel_4.setBounds(30, 276, 366, 6);
+		panel_1.add(panel_4);
+		
+		passwordField = new JPasswordField();
+		passwordField.setBounds(30, 225, 366, 40);
+		panel_1.add(passwordField);
+		
+		textField = new JTextField();
+		textField.setBounds(30, 95, 366, 40);
+		panel_1.add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblNewLabel_2 = new JLabel("Forget Password");
+		lblNewLabel_2.setFont(new Font("Lato", Font.PLAIN, 15));
+		lblNewLabel_2.setBounds(30, 318, 147, 20);
+		panel_1.add(lblNewLabel_2);
+		
+		JLabel lblSignIn = new JLabel("Register");
+		lblSignIn.setHorizontalTextPosition(SwingConstants.LEFT);
+		lblSignIn.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblSignIn.setFont(new Font("Lato", Font.PLAIN, 15));
+		lblSignIn.setBounds(249, 318, 147, 20);
+		panel_1.add(lblSignIn);
+	}
+}

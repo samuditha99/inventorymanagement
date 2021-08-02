@@ -1,0 +1,258 @@
+package Interface;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+
+public class Register extends JFrame {
+
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Register frame = new Register();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	
+	int x, y;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_3;
+	private JTextField textField_4;
+	private JPasswordField passwordField;
+	private JPasswordField passwordField_1;
+	private JTextField textField_2;
+	
+	
+	PreparedStatement pst = null;
+	ResultSet rs = null;
+	Connection con;
+	
+	public Register() {
+		
+		con = DBConnection.connect();
+		
+		setUndecorated(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 668);
+		Toolkit toolkit = getToolkit();
+		Dimension size = toolkit.getScreenSize();
+		setLocation(size.width/2 - getWidth()/2,size.height/2 - getHeight()/2 );
+		getContentPane().setLayout(null);
+		
+		JPanel panel = new JPanel();
+		
+		panel.addMouseMotionListener(new MouseMotionAdapter() {
+		
+			@Override
+		public void mouseDragged(MouseEvent evt) {
+				
+				int xx = evt.getXOnScreen();
+				int yy = evt.getYOnScreen();
+				setLocation(xx-x, yy-y);
+			}
+		});
+		panel.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent evt) {
+				
+				x = evt.getX();
+				y = evt.getY();
+				
+			}
+		});
+	
+		panel.setBackground(new Color(0, 0, 51));
+		panel.setBounds(0, 0, 450, 50);
+		getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				
+				int optionDialog = JOptionPane.showConfirmDialog(null, "Are you sure you want to continue?","Confirm Exit", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+				if(optionDialog == JOptionPane.YES_OPTION) {
+					Home ho = new Home();
+					ho.setVisible(true);
+					dispose();
+					
+				}
+				
+			}
+		});
+		Image img11 = new ImageIcon(this.getClass().getResource("/close.png")).getImage();
+		lblNewLabel.setIcon(new ImageIcon(img11));
+		lblNewLabel.setBounds(400, 0, 50, 50);
+		panel.add(lblNewLabel);
+		
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(new Color(0, 153, 255));
+		panel_1.setBounds(0, 49, 450, 618);
+		getContentPane().add(panel_1);
+		panel_1.setLayout(null);
+		
+		JPanel panel_4 = new JPanel();
+		panel_4.setBackground(new Color(255, 153, 0));
+		panel_4.setBounds(10, 557, 119, 50);
+		panel_1.add(panel_4);
+		panel_4.setLayout(null);
+		
+		JLabel lblLogin = new JLabel("Register");
+		lblLogin.setBounds(0, 0, 119, 50);
+		panel_4.add(lblLogin);
+		lblLogin.setHorizontalAlignment(SwingConstants.CENTER);
+		lblLogin.setFont(new Font("Lato Black", Font.BOLD, 25));
+		
+		JLabel lblNewLabel_1 = new JLabel("First Name");
+		lblNewLabel_1.setFont(new Font("Lato Black", Font.BOLD, 20));
+		lblNewLabel_1.setBounds(10, 83, 196, 29);
+		panel_1.add(lblNewLabel_1);
+		
+		JLabel lblRegister = new JLabel("Mobile");
+		lblRegister.setFont(new Font("Lato Black", Font.BOLD, 20));
+		lblRegister.setBounds(10, 160, 196, 29);
+		panel_1.add(lblRegister);
+		
+		JLabel lblLastName = new JLabel("Last Name");
+		lblLastName.setFont(new Font("Lato Black", Font.BOLD, 20));
+		lblLastName.setBounds(244, 83, 196, 29);
+		panel_1.add(lblLastName);
+		
+		textField = new JTextField();
+		textField.setFont(new Font("Lato", Font.BOLD, 15));
+		textField.setBounds(10, 115, 196, 40);
+		panel_1.add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setFont(new Font("Lato", Font.BOLD, 15));
+		textField_1.setColumns(10);
+		textField_1.setBounds(244, 115, 196, 40);
+		panel_1.add(textField_1);
+		
+		textField_3 = new JTextField();
+		textField_3.setFont(new Font("Lato", Font.BOLD, 15));
+		textField_3.setColumns(10);
+		textField_3.setBounds(10, 187, 430, 40);
+		panel_1.add(textField_3);
+		
+		JLabel lblOccupationType = new JLabel("Occupation Type");
+		lblOccupationType.setFont(new Font("Lato Black", Font.BOLD, 20));
+		lblOccupationType.setBounds(10, 238, 196, 29);
+		panel_1.add(lblOccupationType);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setFont(new Font("Lato", Font.BOLD, 15));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Select Option", "Casheir", "Store Keeper", "Managing Director"}));
+		comboBox.setBackground(Color.WHITE);
+		comboBox.setBounds(10, 267, 430, 40);
+		panel_1.add(comboBox);
+		
+		JLabel lblEmail = new JLabel("Email");
+		lblEmail.setFont(new Font("Lato Black", Font.BOLD, 20));
+		lblEmail.setBounds(10, 315, 196, 29);
+		panel_1.add(lblEmail);
+		
+		textField_4 = new JTextField();
+		textField_4.setFont(new Font("Lato", Font.BOLD, 15));
+		textField_4.setColumns(10);
+		textField_4.setBounds(10, 342, 430, 40);
+		panel_1.add(textField_4);
+		
+		JLabel lblPassword = new JLabel("Password");
+		lblPassword.setFont(new Font("Lato Black", Font.BOLD, 20));
+		lblPassword.setBounds(10, 393, 196, 29);
+		panel_1.add(lblPassword);
+		
+		passwordField = new JPasswordField();
+		passwordField.setFont(new Font("Lato", Font.BOLD, 15));
+		passwordField.setBounds(10, 422, 430, 40);
+		panel_1.add(passwordField);
+		
+		JLabel lblReEnterPassword = new JLabel("Re Enter Password");
+		lblReEnterPassword.setFont(new Font("Lato Black", Font.BOLD, 20));
+		lblReEnterPassword.setBounds(10, 473, 196, 29);
+		panel_1.add(lblReEnterPassword);
+		
+		passwordField_1 = new JPasswordField();
+		passwordField_1.setFont(new Font("Lato", Font.BOLD, 15));
+		passwordField_1.setBounds(10, 506, 430, 40);
+		panel_1.add(passwordField_1);
+		
+		textField_2 = new JTextField();
+		textField_2.setFont(new Font("Lato", Font.BOLD, 15));
+		textField_2.setColumns(10);
+		textField_2.setBounds(10, 41, 430, 40);
+		panel_1.add(textField_2);
+		
+		JLabel lblNationalIdNumber = new JLabel("National ID Number");
+		lblNationalIdNumber.setFont(new Font("Lato Black", Font.BOLD, 20));
+		lblNationalIdNumber.setBounds(10, 11, 221, 29);
+		panel_1.add(lblNationalIdNumber);
+		
+		JPanel panel_2 = new JPanel();
+		panel_2.setLayout(null);
+		panel_2.setBackground(new Color(255, 153, 0));
+		panel_2.setBounds(165, 557, 119, 50);
+		panel_1.add(panel_2);
+		
+		JLabel lblUpdate = new JLabel("Update");
+		lblUpdate.setBounds(0, 0, 119, 50);
+		panel_2.add(lblUpdate);
+		lblUpdate.setHorizontalAlignment(SwingConstants.CENTER);
+		lblUpdate.setFont(new Font("Lato Black", Font.BOLD, 25));
+		
+		JPanel panel_3 = new JPanel();
+		panel_3.setLayout(null);
+		panel_3.setBackground(new Color(255, 153, 0));
+		panel_3.setBounds(321, 557, 119, 50);
+		panel_1.add(panel_3);
+		
+		JLabel lblDelete = new JLabel("Delete");
+		lblDelete.setHorizontalAlignment(SwingConstants.CENTER);
+		lblDelete.setFont(new Font("Lato Black", Font.BOLD, 25));
+		lblDelete.setBounds(0, 0, 119, 50);
+		panel_3.add(lblDelete);
+		
+
+	}
+}

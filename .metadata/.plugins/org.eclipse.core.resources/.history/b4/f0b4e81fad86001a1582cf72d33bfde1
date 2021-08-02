@@ -1,0 +1,224 @@
+package Interface;
+
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.SystemColor;
+
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
+import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.LineBorder;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
+import javax.swing.table.DefaultTableModel;
+
+public class Report extends JInternalFrame {
+	private JTextField textField;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Report frame = new Report();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Report() {
+		setClosable(true);
+		setFocusCycleRoot(false);
+		setFocusTraversalPolicyProvider(true);
+		setFocusable(false);
+		setBounds(0, 0, 925, 779);
+		getContentPane().setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(0, 153, 255));
+		panel.setBounds(0, 0, 925, 750);
+		getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(Color.WHITE);
+		panel_1.setBounds(10, 20, 905, 352);
+		panel.add(panel_1);
+		panel_1.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Item ID");
+		lblNewLabel.setFont(new Font("Lato Black", Font.BOLD, 20));
+		lblNewLabel.setBounds(30, 291, 160, 50);
+		panel_1.add(lblNewLabel);
+		
+		JLabel lblItemName = new JLabel("Item Name");
+		lblItemName.setFont(new Font("Lato Black", Font.BOLD, 20));
+		lblItemName.setBounds(180, 0, 160, 50);
+		panel_1.add(lblItemName);
+		
+		JLabel lblSize = new JLabel("Size");
+		lblSize.setFont(new Font("Lato Black", Font.BOLD, 20));
+		lblSize.setBounds(10, 89, 160, 50);
+		panel_1.add(lblSize);
+		
+		
+		JPanel panel_4 = new JPanel();
+		panel_4.setBackground(new Color(255, 153, 0));
+		panel_4.setBounds(20, 220, 170, 50);
+		panel_1.add(panel_4);
+		panel_4.setLayout(null);
+		
+		JPanel panel_5 = new JPanel();
+		panel_5.setLayout(null);
+		panel_5.setBackground(new Color(255, 153, 0));
+		panel_5.setBounds(657, 220, 170, 50);
+		panel_1.add(panel_5);
+		
+		JLabel lblDelete = new JLabel("Delete");
+		lblDelete.setBounds(159, 71, 120, 50);
+		panel_1.add(lblDelete);
+		lblDelete.setHorizontalAlignment(SwingConstants.CENTER);
+		lblDelete.setFont(new Font("Lato Black", Font.BOLD, 20));
+		
+		JLabel label_3 = new JLabel("");
+		label_3.setBounds(372, 138, 50, 50);
+		panel_1.add(label_3);
+		label_3.setIcon(new ImageIcon("C:\\Users\\Samuditha Wijemanne\\Desktop\\EN\\images\\delete.png"));
+		
+		JPanel panel_6 = new JPanel();
+		panel_6.setBounds(209, 220, 170, 50);
+		panel_1.add(panel_6);
+		panel_6.setLayout(null);
+		panel_6.setBackground(new Color(255, 153, 0));
+		
+		JLabel lblNewLabel_2 = new JLabel("Add");
+		lblNewLabel_2.setBounds(159, 138, 120, 50);
+		panel_1.add(lblNewLabel_2);
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setFont(new Font("Lato Black", Font.BOLD, 20));
+		
+		JLabel label_1 = new JLabel("");
+		label_1.setBounds(77, 150, 50, 50);
+		panel_1.add(label_1);
+		label_1.setIcon(new ImageIcon("C:\\Users\\Samuditha Wijemanne\\Desktop\\EN\\images\\add.png"));
+		
+		JLabel lblUpdate = new JLabel("Update");
+		lblUpdate.setBounds(159, 291, 120, 50);
+		panel_1.add(lblUpdate);
+		lblUpdate.setHorizontalAlignment(SwingConstants.CENTER);
+		lblUpdate.setFont(new Font("Lato Black", Font.BOLD, 20));
+		
+		JLabel label_2 = new JLabel("");
+		label_2.setBounds(432, 236, 50, 50);
+		panel_1.add(label_2);
+		label_2.setIcon(new ImageIcon("C:\\Users\\Samuditha Wijemanne\\Desktop\\EN\\images\\clear.png"));
+		
+		JLabel lblClear = new JLabel("Clear");
+		lblClear.setBounds(491, 236, 120, 50);
+		panel_1.add(lblClear);
+		lblClear.setHorizontalAlignment(SwingConstants.CENTER);
+		lblClear.setFont(new Font("Lato Black", Font.BOLD, 20));
+		
+		JLabel label_5 = new JLabel("Stock");
+		label_5.setHorizontalAlignment(SwingConstants.CENTER);
+		label_5.setFont(new Font("Lato Black", Font.BOLD, 23));
+		label_5.setBounds(0, 0, 120, 39);
+		panel_1.add(label_5);
+		
+		JPanel panel_2 = new JPanel();
+		panel_2.setBorder(new CompoundBorder());
+		panel_2.setBackground(Color.WHITE);
+		panel_2.setBounds(10, 409, 905, 330);
+		panel.add(panel_2);
+		panel_2.setLayout(null);
+		
+		JLabel lblStock = new JLabel("Stock");
+		lblStock.setHorizontalAlignment(SwingConstants.CENTER);
+		lblStock.setFont(new Font("Lato Black", Font.BOLD, 23));
+		lblStock.setBounds(0, 0, 120, 39);
+		panel_2.add(lblStock);
+		
+		JLabel lblCategory = new JLabel("Category");
+		lblCategory.setHorizontalAlignment(SwingConstants.CENTER);
+		lblCategory.setFont(new Font("Lato Black", Font.BOLD, 20));
+		lblCategory.setBounds(0, 32, 120, 39);
+		panel_2.add(lblCategory);
+		
+		textField = new JTextField();
+		textField.setBounds(112, 35, 229, 33);
+		panel_2.add(textField);
+		textField.setColumns(10);
+		
+		JPanel panel_3 = new JPanel();
+		panel_3.setLayout(null);
+		panel_3.setBackground(new Color(255, 153, 0));
+		panel_3.setBounds(363, 21, 170, 50);
+		panel_2.add(panel_3);
+		
+		JLabel label_4 = new JLabel("");
+		label_4.setBounds(0, 0, 50, 50);
+		panel_3.add(label_4);
+		label_4.setIcon(new ImageIcon("C:\\Users\\Samuditha Wijemanne\\Desktop\\EN\\images\\updates.png"));
+		
+		JLabel lblProcess = new JLabel("Process");
+		lblProcess.setHorizontalAlignment(SwingConstants.CENTER);
+		lblProcess.setFont(new Font("Lato Black", Font.BOLD, 20));
+		lblProcess.setBounds(50, 0, 120, 50);
+		panel_3.add(lblProcess);
+		
+		JPanel panel_7 = new JPanel();
+		panel_7.setBounds(543, 21, 170, 50);
+		panel_2.add(panel_7);
+		panel_7.setLayout(null);
+		panel_7.setBackground(new Color(255, 153, 0));
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon("C:\\Users\\Samuditha Wijemanne\\Desktop\\EN\\images\\Print.png"));
+		label.setBounds(0, 0, 50, 50);
+		panel_7.add(label);
+		
+		JLabel lblPrint = new JLabel("Print");
+		lblPrint.setHorizontalAlignment(SwingConstants.CENTER);
+		lblPrint.setFont(new Font("Lato Black", Font.BOLD, 20));
+		lblPrint.setBounds(50, 0, 120, 50);
+		panel_7.add(lblPrint);
+		
+		JPanel panel_8 = new JPanel();
+		panel_8.setLayout(null);
+		panel_8.setBackground(new Color(255, 153, 0));
+		panel_8.setBounds(723, 21, 170, 50);
+		panel_2.add(panel_8);
+		
+		JLabel label_6 = new JLabel("Clear");
+		label_6.setHorizontalAlignment(SwingConstants.CENTER);
+		label_6.setFont(new Font("Lato Black", Font.BOLD, 20));
+		label_6.setBounds(50, 0, 120, 50);
+		panel_8.add(label_6);
+		
+		JLabel label_7 = new JLabel("");
+		label_7.setIcon(new ImageIcon("C:\\Users\\Samuditha Wijemanne\\Desktop\\EN\\images\\clear.png"));
+		label_7.setBounds(0, 0, 50, 50);
+		panel_8.add(label_7);
+		
+		
+		this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+		BasicInternalFrameUI bi = (BasicInternalFrameUI)this.getUI();
+		bi.setNorthPane(null);
+
+	}
+}

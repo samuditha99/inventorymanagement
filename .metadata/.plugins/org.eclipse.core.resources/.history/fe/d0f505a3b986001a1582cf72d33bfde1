@@ -1,0 +1,111 @@
+package Interface;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+import java.awt.Toolkit;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import java.awt.Color;
+import java.awt.Dimension;
+
+import javax.swing.ImageIcon;
+import java.awt.Font;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.UIManager;
+
+public class Login extends JFrame {
+
+	private JPanel contentPane;
+	private JPasswordField passwordField;
+	private JTextField textField;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Login frame = new Login();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Login() {
+		setUndecorated(true);
+		
+		
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 600);
+		
+		Toolkit toolkit = getToolkit();
+		Dimension size = toolkit.getScreenSize();
+		setLocation(size.width/2 - getWidth()/2,size.height/2 - getHeight()/2 );
+		
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(0, 0, 51));
+		panel.setBounds(0, 0, 450, 50);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setBounds(400, 0, 50, 50);
+		panel.add(lblNewLabel);
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Samuditha Wijemanne\\Desktop\\EN\\images\\close.png"));
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(new Color(0, 153, 255));
+		panel_1.setBounds(0, 50, 450, 550);
+		contentPane.add(panel_1);
+		panel_1.setLayout(null);
+		
+		JPanel panel_2 = new JPanel();
+		panel_2.setBounds(30, 125, 229, 10);
+		panel_1.add(panel_2);
+		
+		JPanel panel_3 = new JPanel();
+		panel_3.setBounds(44, 421, 352, 50);
+		panel_1.add(panel_3);
+		
+		JLabel lblNewLabel_1 = new JLabel("User Name");
+		lblNewLabel_1.setFont(new Font("Lato Black", Font.BOLD, 20));
+		lblNewLabel_1.setBounds(30, 46, 147, 14);
+		panel_1.add(lblNewLabel_1);
+		
+		JLabel lblPassword = new JLabel("Password");
+		lblPassword.setFont(new Font("Lato Black", Font.BOLD, 20));
+		lblPassword.setBounds(30, 153, 147, 14);
+		panel_1.add(lblPassword);
+		
+		JPanel panel_4 = new JPanel();
+		panel_4.setBounds(30, 239, 229, 10);
+		panel_1.add(panel_4);
+		
+		passwordField = new JPasswordField();
+		passwordField.setBackground(UIManager.getColor("CheckBox.light"));
+		passwordField.setBounds(30, 178, 366, 40);
+		panel_1.add(passwordField);
+		
+		textField = new JTextField();
+		textField.setBackground(UIManager.getColor("CheckBox.light"));
+		textField.setBounds(30, 71, 366, 40);
+		panel_1.add(textField);
+		textField.setColumns(10);
+	}
+}
